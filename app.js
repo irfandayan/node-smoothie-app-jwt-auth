@@ -18,21 +18,23 @@ app.use(cookieParser());
 app.set("view engine", "ejs");
 
 // database connection
-const dbURI =
-  "mongodb+srv://irfandayan:dayan45@node-express-jwt-auth.8elirby.mongodb.net/?retryWrites=true&w=majority";
 mongoose
-  .connect(dbURI, {
+  .connect(process.env.MONGO_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true,
   })
   .then((result) =>
-    app.listen(process.env.PORT, console.log("server listening at port 3000"))
+    app.listen(
+      process.env.PORT,
+      console.log(`server listening at port ${process.env.PORT}`)
+    )
   )
   .catch((err) => console.log(err));
 
 // routes
-app.get("*", checkUser);
+app.get("*", checkUser); // this is apply this middleware to all incoming requests
 app.get("/", (req, res) => res.render("home"));
 app.get("/smoothies", requireAuth, (req, res) => res.render("smoothies"));
+// other routes
 app.use(authRoutes);

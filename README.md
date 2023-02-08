@@ -1,4 +1,4 @@
-<h1><a href="https://story-books-node-app.herokuapp.com/"> Live Site </a></h1>
+<h1><a href="https://smoothie-app-auth.up.railway.app/"> Live Site </a></h1>
 
 <h2>Node.js Smoothie Recipes App </h2>
 
