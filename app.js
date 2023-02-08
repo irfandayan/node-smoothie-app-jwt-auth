@@ -1,4 +1,5 @@
 const express = require("express");
+const dotenv = require("dotenv");
 const mongoose = require("mongoose");
 const authRoutes = require("./routes/authRoutes");
 const cookieParser = require("cookie-parser");
@@ -6,6 +7,8 @@ const { requireAuth, checkUser } = require("./middleware/authMiddleware");
 
 const app = express();
 
+// env
+dotenv.config();
 // middleware
 app.use(express.static("public"));
 app.use(express.json());
@@ -24,7 +27,7 @@ mongoose
     useCreateIndex: true,
   })
   .then((result) =>
-    app.listen(3000, console.log("server listening at port 3000"))
+    app.listen(process.env.PORT, console.log("server listening at port 3000"))
   )
   .catch((err) => console.log(err));
 
