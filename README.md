@@ -9,7 +9,7 @@
 <li>Dotenv - Load environment variables from .env file</li>
 <li>ejs - View Engine</li>
 <li>Json Web Token<lin>
+<li>Cookie parser
 <li>Bcrypt</li>
 <li>Validator</li>
-<li>
 </ul>
